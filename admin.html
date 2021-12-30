@@ -44,20 +44,23 @@
               >
                 <span class="fa fa-user-o"></span>
               </div>
-              <form action="admin.html" class="login-form">
+              <form action="leaderboard.html" class="login-form">
                 <div class="form-group mb-4">
-                  <input
-                    type="text"
-                    class="form-control rounded-left"
-                    placeholder="Username"
-                    required
-                  />
+                  <select name="college" class="form-select" required>
+                    <option value="" selected disabled hidden>
+                      --College--
+                    </option>
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="mercedes">Mercedes</option>
+                    <option value="audi">Audi</option>
+                  </select>
                 </div>
                 <div class="form-group d-flex">
                   <input
-                    type="password"
+                    type="number"
                     class="form-control rounded-left"
-                    placeholder="Password"
+                    placeholder="Points"
                     required
                   />
                 </div>
@@ -66,8 +69,16 @@
                     type="submit"
                     class="btn btn-primary rounded submit p-3 px-5"
                   >
-                    Login
+                    Update
                   </button>
+
+                  <button
+                  type="submit"
+                  class="btn btn-primary rounded submit p-3 px-5"
+                  style="float: right;"
+                >
+                  Add College
+                </button>
                 </div>
               </form>
             </div>

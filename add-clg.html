@@ -39,28 +39,17 @@
                   d-flex
                   align-items-center
                   justify-content-center
-                  mb-4
+                  mb-5
                 "
               >
                 <span class="fa fa-flag"></span>
               </div>
               <form action="leaderboard.html" class="login-form">
-                <div class="form-group mb-4">
-                  <select name="college" class="form-select" required>
-                    <option value="" selected disabled hidden>
-                      --College--
-                    </option>
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                  </select>
-                </div>
                 <div class="form-group d-flex">
                   <input
-                    type="number"
+                    type="text"
                     class="form-control rounded-left"
-                    placeholder="Score"
+                    placeholder="College"
                     required
                   />
                 </div>
@@ -69,16 +58,7 @@
                     type="submit"
                     class="btn btn-primary rounded submit p-3 px-5"
                   >
-                    Update
-                  </button>
-
-                  <button
-                    type="button"
-                    class="btn btn-primary rounded submit p-3 px-5"
-                    style="float: right"
-                    onclick="location.href = 'add-clg.html';"
-                  >
-                    Add College
+                    Add
                   </button>
                 </div>
               </form>

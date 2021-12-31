@@ -39,17 +39,28 @@
                   d-flex
                   align-items-center
                   justify-content-center
-                  mb-5
+                  mb-4
                 "
               >
-                <span class="fa fa-graduation-cap"></span>
+                <span class="fa fa-flag"></span>
               </div>
-              <form action="leaderboard.html" class="login-form">
+              <form action="/update" method="POST" class="login-form">
+                <div class="form-group mb-4">
+                  <select name="college" class="form-select" required>
+                    <option value="" selected disabled hidden>
+                      --College--
+                    </option>
+		    {{ range $value:= .colleges }}
+                    	<option value='{"name":"{{ $value.Name }}","id":"{{ $value.Id }}"}'>{{ $value.Name }}</option>
+		    {{ end }}
+                  </select>
+                </div>
                 <div class="form-group d-flex">
                   <input
-                    type="text"
+		    name="score"
+                    type="number"
                     class="form-control rounded-left"
-                    placeholder="College"
+                    placeholder="Score"
                     required
                   />
                 </div>
@@ -58,7 +69,16 @@
                     type="submit"
                     class="btn btn-primary rounded submit p-3 px-5"
                   >
-                    Add
+                    Update
+                  </button>
+
+                  <button
+                    type="button"
+                    class="btn btn-primary rounded submit p-3 px-5"
+                    style="float: right"
+                    onclick="location.href = '/add';"
+                  >
+                    Add College
                   </button>
                 </div>
               </form>

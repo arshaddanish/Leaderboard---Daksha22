@@ -39,34 +39,30 @@
                   d-flex
                   align-items-center
                   justify-content-center
-                  mb-4
+                  mb-5
                 "
               >
-                <span class="fa fa-user-o"></span>
+                <span class="fa fa-graduation-cap"></span>
               </div>
-              <form action="admin.html" class="login-form">
-                <div class="form-group mb-4">
-                  <input
-                    type="text"
-                    class="form-control rounded-left"
-                    placeholder="Username"
-                    required
-                  />
-                </div>
+              <form action="/add" method="POST" class="login-form">
                 <div class="form-group d-flex">
                   <input
-                    type="password"
+		    name="name"
+                    type="text"
                     class="form-control rounded-left"
-                    placeholder="Password"
+                    placeholder="College"
                     required
                   />
                 </div>
+		{{if .msg}}
+			{{.msg}}
+		{{end}}
                 <div class="form-group">
                   <button
                     type="submit"
                     class="btn btn-primary rounded submit p-3 px-5"
                   >
-                    Login
+                    Add
                   </button>
                 </div>
               </form>

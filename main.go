@@ -72,7 +72,14 @@ func main(){
 	db.Connect()
 
 	r.GET("/",LeaderBoard)
+
+	r.GET("/admin",admin.Login)
+	r.POST("/admin",admin.AdminLogin)
+
+	r.GET("/add",admin.Add)
 	r.POST("/add",admin.AddCollege)
+
+	r.GET("/update",admin.UpdatePage)
 	r.POST("/update",admin.Update)
 	r.Run()
 }

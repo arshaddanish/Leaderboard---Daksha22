@@ -66,6 +66,12 @@ func AddCollege(c *gin.Context){
 }
 
 func UpdatePage(c * gin.Context){
+	session,err := c.Request.Cookie("logged_in")
+	if err!=nil || session.Value == ""{
+		c.Redirect(303,"/admin")
+		return
+	}
+
 	var colleges []*models.College
 
 	cur,err := db.Database.Collection("colleges").Find(context.TODO(),bson.D{{}})

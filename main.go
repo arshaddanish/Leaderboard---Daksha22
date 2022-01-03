@@ -6,6 +6,7 @@ import("github.com/gin-gonic/gin"
        "daksha-leaderboard/admin"
        "go.mongodb.org/mongo-driver/mongo/options"
        "go.mongodb.org/mongo-driver/bson"
+       "os"
        "context"
        "fmt"
        )
@@ -49,7 +50,9 @@ func LeaderBoard(c *gin.Context){
 
 		data = append(data,&p)
 	}
-
+	if len(data) == 0{
+		c.HTML(200,"leaderboard.tmpl",gin.H{"data":data})
+	}
 	data[0].Rank = 1;
 	for i:=1;i<len(data);i++{
 		if data[i].Score == data[i-1].Score{
@@ -81,5 +84,7 @@ func main(){
 
 	r.GET("/update",admin.UpdatePage)
 	r.POST("/update",admin.Update)
+
+	fmt.Println(os.Getenv("DBPASS"))
 	r.Run()
 }
